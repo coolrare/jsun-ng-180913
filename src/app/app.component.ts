@@ -13,6 +13,13 @@ export class AppComponent {
     this.keyword = value;
   }
 
+  deleteArticle(id) {
+    console.log('您刪除了一篇文章: ' + id);
+    this.data = this.data.filter((value, index) => {
+      return value.id != id;
+    });
+  }
+
   data = [
     {
       id: 1,
