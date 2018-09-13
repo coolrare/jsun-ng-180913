@@ -25,10 +25,10 @@
   <div class="title-wrapper">
     <div class="container">
 
-      <img src="/assets/images/logo.png" class="pull-left logo" alt="The Will Will Web">
+      <img (click)="changeName($event)" src="/assets/images/logo.png" class="pull-left logo" alt="The Will Will Web">
 
       <div class="pull-left">
-        <h1><a [href]="sitelink">{{ sitename }}</a></h1>
+        <h1><a [href]="sitelink">{{ sitename }} {{ counter }}</a></h1>
         <h3 [innerHTML]="subtitle"></h3>
       </div>
 

@@ -11,12 +11,21 @@ export class HeaderComponent implements OnInit {
   sitelink = 'http://blog.miniasp.com/';
   subtitle = '記載著 Will 在網路世界的學習心得與技術分享';
 
+  counter = 0;
+
   constructor() { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.sitename = 'The Will Will Web';
-    }, 2000);
+  }
+
+  changeName(evt: MouseEvent) {
+    console.log(evt);
+    if (evt.ctrlKey) {
+      this.counter--;
+    } else {
+      this.counter++;
+    }
+    this.sitename = 'The Will Will Web';
   }
 
 }
