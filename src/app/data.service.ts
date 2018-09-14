@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   deleteArticle(id) {
     console.log('您刪除了一篇文章: ' + id);
