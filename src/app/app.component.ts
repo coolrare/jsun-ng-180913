@@ -9,11 +9,26 @@ import { DataService } from './data.service';
 })
 export class AppComponent {
   keyword = 'demo1';
+  data;
 
   constructor(public datasvc: DataService) {
   }
 
+  ngOnInit(): void {
+    this.datasvc.getArticles().subscribe((v) => {
+      this.data = v;
+    });
+  }
+
   doSearch(value) {
     this.keyword = value;
+  }
+
+  deleteArticle(id) {
+    this.datasvc.deleteArticle(id).subscribe(v => {
+      console.log('您刪除了一篇文章: ' + id);
+    }, (error) => {
+      console.log(error);
+    });
   }
 }
