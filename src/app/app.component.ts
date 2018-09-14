@@ -27,9 +27,7 @@ export class AppComponent {
   deleteArticle(id) {
     this.datasvc.deleteArticle(id).subscribe(v => {
       console.log('您刪除了一篇文章: ' + id);
-      this.datasvc.getArticles().subscribe((v) => {
-        this.data = v;
-      });
+      this.data = v;
     }, (error) => {
       console.log(error);
     });
