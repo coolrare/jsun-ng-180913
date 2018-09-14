@@ -7,16 +7,18 @@ import { switchMap } from "rxjs/operators";
   providedIn: 'root'
 })
 export class DataService {
+  baseUri = 'http://localhost:3000';
+
   constructor(private http: HttpClient) {}
 
   getArticles() {
-    return this.http.get<Article[]>('http://localhost:3000/articles');
+    return this.http.get<Article[]>(`${this.baseUri}/articles`);
   }
 
   deleteArticle(id) {
-    return this.http.delete('http://localhost:3000/articles/' + id)
+    return this.http.delete(`${this.baseUri}/articles/${id}`)
       .pipe(switchMap(v => {
-        return this.http.get<Article[]>('http://localhost:3000/articles');
+        return this.http.get<Article[]>(`${this.baseUri}/articles`);
       }));
   }
 }
