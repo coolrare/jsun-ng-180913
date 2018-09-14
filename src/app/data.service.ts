@@ -9,10 +9,10 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   getArticles() {
-    return this.http.get<Article[]>('/api/articles.json');
+    return this.http.get<Article[]>('http://localhost:3000/articles');
   }
 
   deleteArticle(id) {
-    return this.http.delete('/api/articles/' + id);
+    return this.http.delete('http://localhost:3000/articles/' + id);
   }
 }
